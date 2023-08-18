@@ -2,11 +2,15 @@
 import java.util.Scanner;
 
 public class Kalkulator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите число, операцию, число.");
         String del = in.nextLine();
+        System.out.println(calc(del));
+    }
+    public static String calc(String del) throws Exception {
         String[] urav = del.split(" ");
+        if (urav.length > 3) throw new Exception("Неверное колличество операндов или лишние пробелы");
         String[] rim = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
         int count = 0;
 
@@ -14,14 +18,9 @@ public class Kalkulator {
             if (Proof.equals(urav[0]) && Proof.equals(urav[2])) {
                 count += 2;
             } else if (Proof.equals(urav[0]) || Proof.equals(urav[2])) {
-                count++;
+                count++;}
+            if (count == 1 && Proof == rim[9]) throw new Exception("Неверные или слишком большие числа");
             }
-            if (count == 1 && Proof == rim[9]) {
-                System.out.println("Неверные или слишком большие числа");
-                System.exit(1);
-            }
-        }
-
         if (count == 2) {
             for (int i = 0; i < 3; i++) {
                 switch (urav[i]) {
@@ -61,10 +60,8 @@ public class Kalkulator {
                     case "*":
                     case ":":
                         break;
-                    default:
-                        System.out.println("Неверные числа");
-                        System.exit(0);
-                        break;
+                    default:throw new Exception("Неверные числа");
+
 
                 }
             }
@@ -73,10 +70,7 @@ public class Kalkulator {
         try {
             int x = Integer.parseInt(urav[0]);
             int y = Integer.parseInt(urav[2]);
-            if (x >= 11 || x >=11){
-                System.out.println("Есть цифра больше 10");
-                System.exit(0);
-            }
+            if (x >= 11 || y >=11 || y <=0 || x<=0) throw new Exception("Есть цифра больше 10 или меньше 0");
             int z = 0;
             switch (urav[1]) {
                 case ("+"):
@@ -94,17 +88,13 @@ public class Kalkulator {
                 case ("*"):
                     z = x * y;
                     break;
-                default:
-                    System.out.println("У нас есть лишь 4 операции!");
-                    System.exit(1);
+                default:throw new Exception("У нас есть лишь 4 операции!");
             }
+
             if (count == 0) {
-                System.out.println(z);
+                return String.valueOf((z));
             }
-            else if ((count == 2) && (z == 0)) {
-                System.out.println("Римский 0... Рим Пал");
-                System.exit(0);
-            }
+            else if ((count == 2) && (z == 0)) throw new Exception("Римский 0... Рим Пал");
             else if (count == 2) {
                 String s = "";
                 while (z == 100) {
@@ -167,11 +157,12 @@ public class Kalkulator {
                     s += "I";
                     z -= 1;
                 }
-                System.out.println(s);
+                return (s);
             }
         } catch (NumberFormatException e) {
-            System.out.println("фигню ввёл");
+            System.out.println(e);     //// Типо обработал же?
         }
+        return del;
     }
 }
 
