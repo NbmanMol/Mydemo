@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    // реализуйте настройку соеденения с БД
     private static final String URL = "jdbc:mysql://localhost:3306/katadaousers";
     private static final String PASSWORD = "root1";
     private static final String USERNAME = "root1";
