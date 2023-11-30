@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface UserService {
     void add(User user);
+
     List<User> listUsers();
 
-    @Transactional
-    User getUserWitchModelandSeries(String model,Integer series);
+    User getUserWitchModelandSeries(String model, Integer series);
 }
