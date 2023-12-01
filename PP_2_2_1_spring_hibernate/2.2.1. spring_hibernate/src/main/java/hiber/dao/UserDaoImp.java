@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User getUserWitchModelandSeries(String model, Integer series) {
+    public User getUserWithModelandSeries(String model, Integer series) {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("SELECT user" +
                 " FROM User user " +
                 "join user.car cars " +

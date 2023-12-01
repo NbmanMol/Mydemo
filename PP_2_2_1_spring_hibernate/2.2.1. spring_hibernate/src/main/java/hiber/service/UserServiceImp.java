@@ -32,6 +32,6 @@ public class UserServiceImp implements UserService {
     @Transactional(readOnly = true)
     @Override
     public User getUserWitchModelandSeries(String model, Integer series) {
-        return (User) userDao.getUserWitchModelandSeries(model, series);
+        return (User) userDao.getUserWithModelandSeries(model, series);
     }
 }
