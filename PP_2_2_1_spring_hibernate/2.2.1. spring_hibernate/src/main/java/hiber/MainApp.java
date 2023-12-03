@@ -21,7 +21,7 @@ public class MainApp {
         userService.add(new User("User3", "Lastname3", "user3@mail.ru", new Car("horse", 321)));
         userService.add(new User("User4", "Lastname4", "user4@mail.ru", new Car("legs", 2)));
 
-        System.out.println((userService.getUserWitchModelandSeries("BMW", 555)).getFirstName());
+        System.out.println((userService.getUserWithModelandSeries("BMW", 555)).getFirstName());
 
 
 //      List<User> users = userService.listUsers();

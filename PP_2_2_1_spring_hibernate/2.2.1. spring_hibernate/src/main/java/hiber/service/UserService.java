@@ -10,5 +10,5 @@ public interface UserService {
 
     List<User> listUsers();
 
-    User getUserWitchModelandSeries(String model, Integer series);
+    User getUserWithModelandSeries(String model, Integer series);
 }
