@@ -12,10 +12,7 @@
         <th>Number</th>
         <th>Owner</th>
     </tr>
-    <tr th:if="${carCount.isEmpty()}">
-        <td colspan="4">No cars found.</td>
-    </tr>
-    <tr th:each="car : ${carCount}">
+    <tr th:each="car : ${fixedCar}">
         <td th:text="${car.model}">Model</td>
         <td th:text="${car.number}">Number</td>
         <td th:text="${car.owner}">Owner</td>
