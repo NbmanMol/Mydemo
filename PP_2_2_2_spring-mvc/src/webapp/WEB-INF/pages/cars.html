@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CarsTable</title>
+</head>
+<body>
+<h1>Car List</h1>
+<table border="1">
+    <tr>
+        <th>Model</th>
+        <th>Number</th>
+        <th>Owner</th>
+    </tr>
+    <tr th:each="car : ${fixedCar}">
+        <td th:text="${car.model}">Model</td>
+        <td th:text="${car.number}">Number</td>
+        <td th:text="${car.owner}">Owner</td>
+    </tr>
+</table>
+</body>
+</html>
