@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String newUser(Model model) {
+    public String createNewUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -44,7 +44,7 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String saveUpdates(@ModelAttribute("user") User updatedUser) {
+    public String saveUpdate(@ModelAttribute("user") User updatedUser) {
         userService.updateUser(updatedUser);
         return "redirect:/users";
     }
