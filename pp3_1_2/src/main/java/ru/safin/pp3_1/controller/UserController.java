@@ -16,8 +16,6 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
-        userService.createUser(new User("ЯНиче", "НеПонял", "@Грустно.com"));
-        userService.createUser(new User("ЯНиче", "НеПонял", "@Грустно.com"));
     }
 
     @GetMapping()
@@ -27,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String createNewUser(Model model) {
+    public String returnCreateUserPage(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -39,13 +37,13 @@ public class UserController {
     }
 
     @GetMapping("/update")
-    public String updateUser(Model model, @RequestParam Integer id) {
+    public String returnUpdateUserPage(Model model, @RequestParam Integer id) {
         model.addAttribute("user", userService.getUserForId(id));
         return "update";
     }
 
     @PostMapping("/update")
-    public String saveUpdate(@ModelAttribute("user") User updatedUser) {
+    public String updateUser(@ModelAttribute("user") User updatedUser) {
         userService.updateUser(updatedUser);
         return "redirect:/users";
     }
